@@ -1,0 +1,122 @@
+.button {
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 500;
+  width: 61px;
+  height: 61px;
+  min-width: 44px;
+  position: relative;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .button {
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+.button:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.number {
+  background-color: #18213C;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.number:hover:not(:disabled) {
+  background-color: #1e2a47;
+  color: #ffffff;
+}
+
+.number:active:not(:disabled) {
+  background-color: #141b30;
+  color: #ffffff;
+}
+
+.operator {
+  background-color: #97323F;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.operator:hover:not(:disabled) {
+  background-color: #a8374a;
+  color: #ffffff;
+}
+
+.operator:active:not(:disabled) {
+  background-color: #862d38;
+  color: #ffffff;
+}
+
+.clear {
+  background-color: #19345D;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.clear:hover:not(:disabled) {
+  background-color: #1e3c69;
+  color: #ffffff;
+}
+
+.clear:active:not(:disabled) {
+  background-color: #152c51;
+  color: #ffffff;
+}
+
+.equals {
+  background-color: #97323F;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.equals:hover:not(:disabled) {
+  background-color: #a8374a;
+  color: #ffffff;
+}
+
+.equals:active:not(:disabled) {
+  background-color: #862d38;
+  color: #ffffff;
+}
+
+.function {
+  background-color: #19345D;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.function:hover:not(:disabled) {
+  background-color: #1e3c69;
+  color: #ffffff;
+}
+
+.function:active:not(:disabled) {
+  background-color: #152c51;
+  color: #ffffff;
+}
+
+/* Special styling for the "0" button */
+.zeroButton {
+  width: 128px;
+  height: 61px;
+  flex-shrink: 0;
+}
