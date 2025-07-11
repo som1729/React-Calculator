@@ -15,6 +15,62 @@ export class CalculatorError extends Error {
 }
 
 /**
+ * Constants for overflow/underflow handling
+ */
+const MAX_SAFE_VALUE = 999999999999; // 12 digits max
+const MIN_SAFE_VALUE = -999999999999;
+const MAX_DECIMAL_PLACES = 8;
+const MAX_DISPLAY_LENGTH = 12;
+
+/**
+ * Format result with proper overflow/underflow handling
+ */
+function formatResult(value: number): string {
+  // Handle special cases
+  if (!isFinite(value)) {
+    throw new CalculatorError('Error', 'OVERFLOW');
+  }
+  
+  if (value === 0) {
+    return '0';
+  }
+  
+  // Check for overflow
+  if (value > MAX_SAFE_VALUE || value < MIN_SAFE_VALUE) {
+    throw new CalculatorError('Error', 'OVERFLOW');
+  }
+  
+  // Handle very small numbers (underflow to zero)
+  if (Math.abs(value) < 1e-8) {
+    return '0';
+  }
+  
+  // Convert to string and handle precision
+  let result = value.toString();
+  
+  // Handle scientific notation
+  if (result.includes('e')) {
+    throw new CalculatorError('Error', 'OVERFLOW');
+  }
+  
+  // Round to reasonable decimal places for display
+  if (result.includes('.')) {
+    const parts = result.split('.');
+    if (parts[1].length > MAX_DECIMAL_PLACES) {
+      const rounded = parseFloat(value.toFixed(MAX_DECIMAL_PLACES));
+      result = rounded.toString();
+    }
+  }
+  
+  // Check final display length
+  if (result.length > MAX_DISPLAY_LENGTH) {
+    throw new CalculatorError('Error', 'OVERFLOW');
+  }
+  
+  return result;
+}
+
+/**
  * Main calculator function - handles all button inputs
  */
 export function calculate(state: CalculatorState, buttonName: string): CalculatorState {
@@ -43,30 +99,34 @@ export function calculate(state: CalculatorState, buttonName: string): Calculato
       case '±':
         if (next) {
           const value = parseFloat(next);
-          return { ...state, next: String(-value) };
+          const result = -value;
+          return { ...state, next: formatResult(result) };
         }
         if (total) {
-          return { ...state, total: String(-parseFloat(total)) };
+          const value = parseFloat(total);
+          const result = -value;
+          return { ...state, total: formatResult(result) };
         }
         return state;
 
       case '%':
         if (next) {
           const value = parseFloat(next) / 100;
-          return { ...state, next: String(value) };
+          return { ...state, next: formatResult(value) };
         }
         if (total) {
           const value = parseFloat(total) / 100;
-          return { ...state, total: String(value) };
+          return { ...state, total: formatResult(value) };
         }
         return state;
 
       case '=':
         if (total && operation && next) {
           const result = operations[operation](parseFloat(total), parseFloat(next));
+          const formattedResult = formatResult(result);
           
           return {
-            total: String(result),
+            total: formattedResult,
             next: null,
             operation: null,
           };
@@ -79,9 +139,10 @@ export function calculate(state: CalculatorState, buttonName: string): Calculato
       case '÷':
         if (total && operation && next) {
           const result = operations[operation](parseFloat(total), parseFloat(next));
+          const formattedResult = formatResult(result);
           
           return {
-            total: String(result),
+            total: formattedResult,
             next: null,
             operation: buttonName,
           };

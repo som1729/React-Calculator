@@ -4,21 +4,21 @@
 
 import React, { memo, forwardRef } from 'react';
 import { DisplayProps } from '../types';
-import styles from './Display.module.css';
+import './Display.css';
 
 export const Display = memo(forwardRef<HTMLDivElement, DisplayProps>(({ 
   value, 
   expression, 
   isError = false,
-  'data-testid': testId,
+  id: elementId,
 }, ref) => {
   const displayValue = value || '0';
 
   return (
     <div 
       ref={ref}
-      className={`${styles.display} ${isError ? styles.error : ''}`}
-      data-testid={testId || 'calculator-display'}
+      className={`display ${isError ? 'error' : ''}`}
+      id={elementId || 'calculator-display'}
       role="textbox"
       aria-readonly="true"
       aria-label={`Calculator display showing ${displayValue}`}
@@ -29,8 +29,8 @@ export const Display = memo(forwardRef<HTMLDivElement, DisplayProps>(({
     >
       {expression && (
         <div 
-          className={styles.expression}
-          data-testid="calculator-expression"
+          className="expression"
+          id="calculator-expression"
           aria-label={`Expression: ${expression}`}
           title={`Current expression: ${expression}`}
         >
@@ -38,8 +38,8 @@ export const Display = memo(forwardRef<HTMLDivElement, DisplayProps>(({
         </div>
       )}
       <div 
-        className={styles.value}
-        data-testid="calculator-value"
+        className="value"
+        id="calculator-value"
         title={displayValue}
       >
         {displayValue}

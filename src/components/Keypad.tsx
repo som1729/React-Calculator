@@ -5,7 +5,7 @@
 import React, { memo } from 'react';
 import { Button } from './Button';
 import { KeypadProps } from '../types';
-import styles from './Keypad.module.css';
+import './Keypad.css';
 
 // Button layout for the calculator keypad
 const BUTTON_LAYOUT = [
@@ -19,17 +19,17 @@ const BUTTON_LAYOUT = [
 export const Keypad = memo<KeypadProps>(({ 
   onButtonClick, 
   disabled = false,
-  'data-testid': testId,
+  id: elementId,
 }) => {
   return (
     <div 
-      className={styles.keypad}
+      className="keypad"
       role="group"
       aria-label="Calculator keypad"
-      data-testid={testId || 'calculator-keypad'}
+      id={elementId || 'calculator-keypad'}
     >
       <div 
-        className={styles.grid}
+        className="grid"
         role="grid"
         aria-label="Calculator buttons"
       >
@@ -38,20 +38,20 @@ export const Keypad = memo<KeypadProps>(({
             <div
               key={`${rowIndex}-${colIndex}`}
               role="gridcell"
-              className={label === '0' ? styles.zeroButton : undefined}
+              className={label === '0' ? 'zeroButton' : undefined}
             >
               <Button 
                 label={label} 
                 onClick={onButtonClick}
                 disabled={disabled}
-                data-testid={`keypad-button-${label}`}
+                id={`keypad-button-${label}`}
               />
             </div>
           ))
         )}
       </div>
       
-      <div className={styles.srOnly}>
+      <div className="srOnly">
         Use arrow keys to navigate between buttons, Enter or Space to activate
       </div>
     </div>

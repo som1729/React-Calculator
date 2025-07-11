@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <ErrorBoundary onError={(error, errorInfo) => console.error('Calculator error:', error, errorInfo)}>
-        <Calculator data-testid="main-calculator" />
+        <Calculator id="main-calculator" />
       </ErrorBoundary>
     </div>
   );

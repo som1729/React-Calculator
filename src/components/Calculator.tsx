@@ -10,7 +10,7 @@ import {
   calculate, 
   CalculatorError
 } from '../utils';
-import styles from './Calculator.module.css';
+import './Calculator.css';
 
 // Keyboard shortcuts mapping
 const KEYBOARD_MAP: Record<string, string> = {
@@ -23,7 +23,7 @@ const KEYBOARD_MAP: Record<string, string> = {
 
 export const Calculator = memo<CalculatorProps>(({ 
   className = '',
-  'data-testid': testId,
+  id: elementId,
 }) => {
   const [state, setState] = useState<CalculatorState>({ total: null, next: null, operation: null });
   const [isError, setIsError] = useState(false);
@@ -49,6 +49,11 @@ export const Calculator = memo<CalculatorProps>(({
       // Calculate the result
       const result = calculate(state, button);
       setState(result);
+      
+      // Remove focus from any active element after button click for better UX
+      if (document.activeElement && document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
     } catch (error) {
       // For CalculatorError, show the error message in the display
       if (error instanceof CalculatorError) {
@@ -61,6 +66,11 @@ export const Calculator = memo<CalculatorProps>(({
         // For other errors, show generic error state
         setIsError(true);
         setTimeout(() => setIsError(false), 2000);
+      }
+      
+      // Also blur on error for consistency
+      if (document.activeElement && document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
       }
     }
   }, [state]);
@@ -85,28 +95,28 @@ export const Calculator = memo<CalculatorProps>(({
 
   return (
     <main 
-      className={`${styles.calculator} ${className}`.trim()}
+      className={`calculator ${className}`.trim()}
       role="application"
       aria-label="Calculator"
-      data-testid={testId || 'calculator'}
+      id={elementId || 'calculator'}
     >
-      <h1 className={styles.srOnly}>Calculator Application</h1>
+      <h1 className="srOnly">Calculator Application</h1>
       
       <Display 
         value={displayValue}
         expression={expression}
         isError={isError}
-        data-testid="calculator-display"
+        id="calculator-display"
       />
       
       <Keypad 
         onButtonClick={handleInput}
-        data-testid="calculator-keypad"
+        id="calculator-keypad"
       />
       
       <a 
         href="#calculator-keypad" 
-        className={styles.skipLink}
+        className="skipLink"
         aria-label="Skip to calculator buttons"
       >
         Skip to calculator buttons

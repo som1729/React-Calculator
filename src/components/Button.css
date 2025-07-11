@@ -1,0 +1,51 @@
+.button {
+  width: 61px;
+  height: 61px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .button {
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+.button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.button:active:not(:disabled) {
+  opacity: 0.8;
+}
+
+.number {
+  background: #18213C;
+}
+
+.operator,
+.equals {
+  background: #97323F;
+}
+
+.clear,
+.function {
+  background: #19345D;
+}
+
+.zeroButton {
+  width: 128px;
+}

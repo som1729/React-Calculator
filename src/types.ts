@@ -20,23 +20,23 @@ export interface ButtonProps {
   readonly className?: string;
   readonly disabled?: boolean;
   readonly 'aria-label'?: string;
-  readonly 'data-testid'?: string;
+  readonly id?: string;
 }
 
 export interface DisplayProps {
   readonly value: string;
   readonly expression?: string;
   readonly isError?: boolean;
-  readonly 'data-testid'?: string;
+  readonly id?: string;
 }
 
 export interface KeypadProps {
   readonly onButtonClick: (label: string) => void;
   readonly disabled?: boolean;
-  readonly 'data-testid'?: string;
+  readonly id?: string;
 }
 
 export interface CalculatorProps {
   readonly className?: string;
-  readonly 'data-testid'?: string;
+  readonly id?: string;
 }

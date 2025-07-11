@@ -5,7 +5,7 @@
 import React, { memo } from 'react';
 import { ButtonProps } from '../types';
 import { getButtonType, getButtonTooltip } from '../utils';
-import styles from './Button.module.css';
+import './Button.css';
 
 export const Button = memo<ButtonProps>(({ 
   label, 
@@ -14,12 +14,12 @@ export const Button = memo<ButtonProps>(({
   className = '', 
   disabled = false,
   'aria-label': ariaLabel,
-  'data-testid': testId,
+  id: elementId,
 }) => {
   const buttonType = type || getButtonType(label);
-  const typeClass = styles[buttonType] || '';
-  const zeroClass = label === '0' ? styles.zeroButton : '';
-  const buttonClass = `${styles.button} ${typeClass} ${zeroClass} ${className}`.trim();
+  const typeClass = buttonType || '';
+  const zeroClass = label === '0' ? 'zeroButton' : '';
+  const buttonClass = `button ${typeClass} ${zeroClass} ${className}`.trim();
   
   const handleClick = () => {
     if (!disabled) {
@@ -34,7 +34,7 @@ export const Button = memo<ButtonProps>(({
       onClick={handleClick}
       disabled={disabled}
       aria-label={ariaLabel || label}
-      data-testid={testId || `button-${label}`}
+      id={elementId || `button-${label}`}
       title={getButtonTooltip(label)} // Add tooltip here
     >
       {label}
