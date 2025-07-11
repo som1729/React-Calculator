@@ -56,7 +56,8 @@ function formatResult(value: number): string {
   // Round to reasonable decimal places for display
   if (result.includes('.')) {
     const parts = result.split('.');
-    if (parts[1].length > MAX_DECIMAL_PLACES) {
+    const decimalPart = parts[1];
+    if (decimalPart && decimalPart.length > MAX_DECIMAL_PLACES) {
       const rounded = parseFloat(value.toFixed(MAX_DECIMAL_PLACES));
       result = rounded.toString();
     }
@@ -122,14 +123,17 @@ export function calculate(state: CalculatorState, buttonName: string): Calculato
 
       case '=':
         if (total && operation && next) {
-          const result = operations[operation](parseFloat(total), parseFloat(next));
-          const formattedResult = formatResult(result);
-          
-          return {
-            total: formattedResult,
-            next: null,
-            operation: null,
-          };
+          const operationFn = operations[operation];
+          if (operationFn) {
+            const result = operationFn(parseFloat(total), parseFloat(next));
+            const formattedResult = formatResult(result);
+            
+            return {
+              total: formattedResult,
+              next: null,
+              operation: null,
+            };
+          }
         }
         return state;
 
@@ -138,14 +142,17 @@ export function calculate(state: CalculatorState, buttonName: string): Calculato
       case '×':
       case '÷':
         if (total && operation && next) {
-          const result = operations[operation](parseFloat(total), parseFloat(next));
-          const formattedResult = formatResult(result);
-          
-          return {
-            total: formattedResult,
-            next: null,
-            operation: buttonName,
-          };
+          const operationFn = operations[operation];
+          if (operationFn) {
+            const result = operationFn(parseFloat(total), parseFloat(next));
+            const formattedResult = formatResult(result);
+            
+            return {
+              total: formattedResult,
+              next: null,
+              operation: buttonName,
+            };
+          }
         }
 
         if (!operation) {

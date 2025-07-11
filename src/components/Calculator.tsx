@@ -2,7 +2,7 @@
  * Simple Calculator Component
  */
 
-import React, { memo, useState, useCallback, useEffect } from 'react';
+import { memo, useState, useCallback, useEffect } from 'react';
 import { Display } from './Display';
 import { Keypad } from './Keypad';
 import { CalculatorProps, CalculatorState } from '../types';

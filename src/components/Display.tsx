@@ -2,7 +2,7 @@
  * Calculator Display Component
  */
 
-import React, { memo, forwardRef } from 'react';
+import { memo, forwardRef } from 'react';
 import { DisplayProps } from '../types';
 import './Display.css';
 

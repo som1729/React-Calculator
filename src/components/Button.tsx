@@ -2,7 +2,7 @@
  * Calculator Button Component
  */
 
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { ButtonProps } from '../types';
 import { getButtonType, getButtonTooltip } from '../utils';
 import './Button.css';

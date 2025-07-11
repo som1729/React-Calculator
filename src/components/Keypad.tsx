@@ -2,7 +2,7 @@
  * Calculator Keypad Component
  */
 
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Button } from './Button';
 import { KeypadProps } from '../types';
 import './Keypad.css';

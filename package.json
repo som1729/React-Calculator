@@ -1,7 +1,11 @@
 {
   "name": "modern-calculator",
   "version": "1.0.0",
+  "description": "A modern, accessible calculator built with React and optimized for production use",
+  "keywords": ["calculator", "react", "typescript", "pwa", "accessible", "math", "arithmetic"],
+  "author": "Modern Calculator Team",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -10,18 +14,28 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test",
+    "eject": "react-scripts eject",
+    "analyze": "npm run build && npx serve -s build",
+    "lint": "eslint src/**/*.{ts,tsx} --max-warnings 0",
+    "type-check": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-console": "warn",
+      "@typescript-eslint/no-unused-vars": "error"
+    }
   },
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
+      "not ie <= 11",
       "not op_mini all"
     ],
     "development": [
@@ -29,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   }
 }
