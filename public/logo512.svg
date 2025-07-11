@@ -1,6 +1,47 @@
-<!-- This is a placeholder for logo512.png -->
-<!-- In production, you would replace this with actual PNG files -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" fill="#0078d4" rx="50"/>
-  <text x="256" y="320" font-family="system-ui" font-size="200" font-weight="bold" text-anchor="middle" fill="white">C</text>
+  <!-- Calculator body -->
+  <rect width="512" height="512" fill="#11294F" rx="50"/>
+  
+  <!-- Display -->
+  <rect x="40" y="40" width="432" height="100" fill="#19345D" rx="20"/>
+  <text x="450" y="110" font-family="monospace" font-size="60" font-weight="bold" text-anchor="end" fill="white">123.45</text>
+  
+  <!-- Button grid - Top row -->
+  <rect x="40" y="180" width="96" height="75" fill="#97323F" rx="12"/>
+  <text x="88" y="230" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">AC</text>
+  
+  <rect x="156" y="180" width="96" height="75" fill="#19345D" rx="12"/>
+  <text x="204" y="230" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">±</text>
+  
+  <rect x="272" y="180" width="96" height="75" fill="#19345D" rx="12"/>
+  <text x="320" y="230" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">%</text>
+  
+  <rect x="388" y="180" width="96" height="75" fill="#97323F" rx="12"/>
+  <text x="436" y="230" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">÷</text>
+  
+  <!-- Second row -->
+  <rect x="40" y="275" width="96" height="75" fill="#18213C" rx="12"/>
+  <text x="88" y="325" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">7</text>
+  
+  <rect x="156" y="275" width="96" height="75" fill="#18213C" rx="12"/>
+  <text x="204" y="325" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">8</text>
+  
+  <rect x="272" y="275" width="96" height="75" fill="#18213C" rx="12"/>
+  <text x="320" y="325" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">9</text>
+  
+  <rect x="388" y="275" width="96" height="75" fill="#97323F" rx="12"/>
+  <text x="436" y="325" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">×</text>
+  
+  <!-- Third row -->
+  <rect x="40" y="370" width="96" height="75" fill="#18213C" rx="12"/>
+  <text x="88" y="420" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">4</text>
+  
+  <rect x="156" y="370" width="96" height="75" fill="#18213C" rx="12"/>
+  <text x="204" y="420" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">5</text>
+  
+  <rect x="272" y="370" width="96" height="75" fill="#18213C" rx="12"/>
+  <text x="320" y="420" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">6</text>
+  
+  <rect x="388" y="370" width="96" height="75" fill="#97323F" rx="12"/>
+  <text x="436" y="420" font-family="system-ui" font-size="36" font-weight="bold" text-anchor="middle" fill="white">−</text>
 </svg>

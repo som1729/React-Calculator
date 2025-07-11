@@ -1,7 +1,34 @@
-<!-- This is a placeholder for logo192.png -->
-<!-- In production, you would replace this with actual PNG files -->
-<!-- For now, we'll create SVG placeholders that can be easily converted -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
-  <rect width="192" height="192" fill="#0078d4" rx="20"/>
-  <text x="96" y="120" font-family="system-ui" font-size="80" font-weight="bold" text-anchor="middle" fill="white">C</text>
+  <!-- Calculator body -->
+  <rect width="192" height="192" fill="#11294F" rx="20"/>
+  
+  <!-- Display -->
+  <rect x="16" y="16" width="160" height="40" fill="#19345D" rx="8"/>
+  <text x="168" y="42" font-family="monospace" font-size="24" font-weight="bold" text-anchor="end" fill="white">123</text>
+  
+  <!-- Button grid -->
+  <rect x="16" y="72" width="36" height="28" fill="#97323F" rx="4"/>
+  <text x="34" y="90" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">AC</text>
+  
+  <rect x="60" y="72" width="36" height="28" fill="#19345D" rx="4"/>
+  <text x="78" y="90" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">±</text>
+  
+  <rect x="104" y="72" width="36" height="28" fill="#19345D" rx="4"/>
+  <text x="122" y="90" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">%</text>
+  
+  <rect x="148" y="72" width="36" height="28" fill="#97323F" rx="4"/>
+  <text x="166" y="90" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">÷</text>
+  
+  <!-- Number buttons (sample) -->
+  <rect x="16" y="108" width="36" height="28" fill="#18213C" rx="4"/>
+  <text x="34" y="126" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">7</text>
+  
+  <rect x="60" y="108" width="36" height="28" fill="#18213C" rx="4"/>
+  <text x="78" y="126" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">8</text>
+  
+  <rect x="104" y="108" width="36" height="28" fill="#18213C" rx="4"/>
+  <text x="122" y="126" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">9</text>
+  
+  <rect x="148" y="108" width="36" height="28" fill="#97323F" rx="4"/>
+  <text x="166" y="126" font-family="system-ui" font-size="16" font-weight="bold" text-anchor="middle" fill="white">×</text>
 </svg>

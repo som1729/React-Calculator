@@ -1,29 +1,38 @@
 {
   "short_name": "Calculator",
   "name": "Modern Calculator",
-  "description": "A modern, accessible calculator app",
+  "description": "A modern, accessible calculator app for everyday calculations",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "logo192.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "logo512.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#0078d4",
-  "background_color": "#ffffff",
+  "theme_color": "#11294F",
+  "background_color": "#11294F",
   "orientation": "portrait",
   "categories": ["productivity", "utilities"],
-  "lang": "en"
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "display_override": ["window-controls-overlay", "standalone"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }

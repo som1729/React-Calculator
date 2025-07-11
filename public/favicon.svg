@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Calculator body -->
+  <rect width="32" height="32" fill="#11294F" rx="4"/>
+  
+  <!-- Display -->
+  <rect x="3" y="3" width="26" height="8" fill="#19345D" rx="2"/>
+  <text x="27" y="9" font-family="monospace" font-size="6" font-weight="bold" text-anchor="end" fill="white">123</text>
+  
+  <!-- Button grid (simplified) -->
+  <rect x="3" y="14" width="6" height="5" fill="#97323F" rx="1"/>
+  <rect x="11" y="14" width="6" height="5" fill="#19345D" rx="1"/>
+  <rect x="19" y="14" width="6" height="5" fill="#97323F" rx="1"/>
+  
+  <rect x="3" y="21" width="6" height="5" fill="#18213C" rx="1"/>
+  <rect x="11" y="21" width="6" height="5" fill="#18213C" rx="1"/>
+  <rect x="19" y="21" width="6" height="5" fill="#18213C" rx="1"/>
+  
+  <!-- Small dots to represent numbers -->
+  <circle cx="6" cy="23.5" r="1" fill="white"/>
+  <circle cx="14" cy="23.5" r="1" fill="white"/>
+  <circle cx="22" cy="23.5" r="1" fill="white"/>
+</svg>
